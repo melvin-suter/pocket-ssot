@@ -15,7 +15,7 @@ cd ..
 
 echo "Building go"
 
-go build -ldflags "-X main.Version=$VERSION" > /dev/null
+go build -o pocket-ssot -ldflags "-X main.Version=$VERSION" > /dev/null
 
 
 
