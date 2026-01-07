@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+  purge)
+    deluser --system pocket-ssot || true
+    delgroup --system pocket-ssot || true
+    ;;
+esac
+
+exit 0

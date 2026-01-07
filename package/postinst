@@ -1,0 +1,31 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+  configure)
+    if ! getent group pocket-ssot >/dev/null; then
+      addgroup --system pocket-ssot
+    fi
+
+    if ! getent passwd pocket-ssot >/dev/null; then
+      adduser \
+        --system \
+        --ingroup pocket-ssot \
+        --home /var/lib/pocket-ssot \
+        --no-create-home \
+        --shell /usr/sbin/nologin \
+        pocket-ssot
+    fi
+
+    mkdir -p /var/lib/pocket-ssot /etc/pocket-ssot
+    chown -R pocket-ssot:pocket-ssot /var/lib/pocket-ssot
+    chmod 750 /var/lib/pocket-ssot
+    chmod 750 /etc/pocket-ssot
+
+    systemctl daemon-reload || true
+    systemctl enable pocket-ssot.service || true
+    systemctl restart pocket-ssot.service || true
+    ;;
+esac
+
+exit 0
