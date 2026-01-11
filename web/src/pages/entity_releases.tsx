@@ -22,7 +22,7 @@ export default function EntityReleases() {
 
   const loadData = async () => {
     api.collection("releases_entity")
-      .getFullList({ filter: `entity = "${id}"`, sort: "-created" })
+      .getFullList({ filter: `entity = "${id}"`/*, sort: "-created"*/ }) // TODO: fix sort for created, doesnt work right now
       .then(setReleases)
       .catch((err) => setError(err.message));
 
