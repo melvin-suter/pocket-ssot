@@ -18,7 +18,7 @@ echo "Building go"
 go build -o pocket-ssot -ldflags "-X main.Version=$VERSION" > /dev/null
 
 rm -f pocket-ssot_*.deb
-rm -f pocket-ssot_*.rpm
+rm -f pocket-ssot-*.rpm
 
 chmod 775 pocket-ssot
 chmod 755 package/postinst
