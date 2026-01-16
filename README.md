@@ -1,6 +1,6 @@
 # PocketSSoT
 
-![logo](logo.png)
+<img src="./logo.png" alt="pocket-ssot logo" width="150">
 
 Single source of truth for managing software releases. API, CLI, and web UI.
 
@@ -11,7 +11,7 @@ I did use AI to help out with the logo and some code. I do understand it, I'm ju
 ## Install
 
 ### Packages
-Download from [Releases](https://github.com/your-repo/pocket-ssot/releases).
+Download from [Releases](https://github.com/melvin-suter/pocket-ssot/releases).
 
 Debian: `sudo dpkg -i pocket-ssot-version.deb`
 
