@@ -27,12 +27,6 @@ jobs:
         run: npm ci
         working-directory: pocket-ssot.frontend
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: "1.22"
-          cache: true
-
       - name: Install build deps (fpm + rpm tooling)
         run: |
           sudo apt-get update
@@ -48,8 +42,8 @@ jobs:
         run: |
           mkdir -p dist
           # fpm outputs into current directory by default
-          mv *.deb dist/ || true
-          mv *.rpm dist/ || true
+          mv out/*.deb dist/ || true
+          mv out/*.rpm dist/ || true
           cp out/cli/pocket-ssot dist/ || true
           ls -lah dist
 
