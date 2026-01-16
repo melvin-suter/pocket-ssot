@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "9+SH4lQGg8jEZUBcO+7Wcg0uitVBdec8YLr9fAJBXWzFUUVIuBQWiSgEVG+mPQA60sn8/J+Q+aePFqNDy8BGmg==",
+  "success": true,
+  "projectFilePath": "/root/code/pocket-ssot/pocket-ssot.cli/pocket-ssot.cli.csproj",
+  "expectedPackageFiles": [
+    "/root/.nuget/packages/microsoft.extensions.configuration/10.0.2/microsoft.extensions.configuration.10.0.2.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.2/microsoft.extensions.configuration.abstractions.10.0.2.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.extensions.primitives/10.0.2/microsoft.extensions.primitives.10.0.2.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.net.illink.tasks/8.0.22/microsoft.net.illink.tasks.8.0.22.nupkg.sha512",
+    "/root/.nuget/packages/yamldotnet/16.3.0/yamldotnet.16.3.0.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.22/microsoft.netcore.app.runtime.linux-x64.8.0.22.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.22/microsoft.aspnetcore.app.runtime.linux-x64.8.0.22.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512"
+  ],
+  "logs": []
+}

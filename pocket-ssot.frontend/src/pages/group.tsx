@@ -51,7 +51,7 @@ export default function Group() {
 
   const loadEntities = async () => {
     const data = await apiFetch<any>(`/api/collections/${id}/entities`, {method: "GET"});
-    setEntities(data);
+    setEntities(data.sort((a:any, b:any) => a.name.localeCompare(b.name)));
   };
 
   const loadCollection = async () => {

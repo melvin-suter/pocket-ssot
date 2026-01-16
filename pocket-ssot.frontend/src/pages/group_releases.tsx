@@ -16,8 +16,11 @@ export default function GroupReleases() {
   }, [id]);
 
   const loadData = async () => {
-      const data = await apiFetch<any>("/api/releases/collection", {method: "GET"});
-      setReleases(data);
+      const data = await apiFetch<any>(`/api/collections/${id}/releases`, {method: "GET"});
+      setReleases(data.sort(
+        (a:any, b:any) =>
+          Date.parse(b.createdAt) - Date.parse(a.createdAt)
+      ));
       const dataGroup = await apiFetch<any>(`/api/collections/${id}`, {method: "GET"});
       setGroup(dataGroup);
 
@@ -37,8 +40,8 @@ export default function GroupReleases() {
 
             {releases.map((release:any) => (
               <details style={{alignItems: "stretch"}}>
-                <summary className={((release.out ?? []).filter((i:any) => !i.status).length > 0 ? "error": "success") + ((release.out ?? []).length == 0 ? " running" : "")}>{release.name}</summary>
-                {release.out?.map((output:any) => 
+                <summary className={(release.status ? "success": "error") + ((release.results ?? []).length == 0 ? " running" : "")}>{release.name}</summary>
+                {release.results?.map((output:any) => 
                   <article>
                     <strong>{output.name}</strong>
                     {output.status ? (

@@ -9,7 +9,7 @@ public static class Releases
     {
         app.MapGet("/api/releases/collection", (YamlStore yaml) =>
         {
-            return Results.Ok(yaml.List<ReleaseRecord>("releases_collection"));
+            return Results.Ok(yaml.List<ReleaseRecord>("releases/collections"));
         });
 
         return app;

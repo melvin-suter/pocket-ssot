@@ -1,0 +1,21 @@
+[Unit]
+Description=Pocket SSOT Service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=pocket-ssot
+Group=pocket-ssot
+ExecStart=/usr/lib/pocket-ssot/pocket-ssot.backend
+WorkingDirectory=/usr/lib/pocket-ssot
+Restart=on-failure
+RestartSec=5s
+# Security basics without going full tinfoil
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

@@ -17,8 +17,7 @@ public class ReleaseRecord
     public string CollectionId { get; set; } = "";
     public string? EntityId { get; set; }
     public string ReleaseChannelId { get; set; } = "";
-
+    public bool Status { get; set; } = false;
     public List<StepResult> Results { get; set; } = new();
-
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }

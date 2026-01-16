@@ -20,7 +20,7 @@ export default function Groups() {
 
   const loadData = async () => {
     const data = await apiFetch<any>("/api/collections", {method: "GET"});
-    setGroups(data);
+    setGroups(data.sort((a:any, b:any) => a.name.localeCompare(b.name)));
   };
 
   const addGroup = async () => {

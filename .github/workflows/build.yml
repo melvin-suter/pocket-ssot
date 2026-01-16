@@ -2,8 +2,8 @@ name: release
 
 on:
   push:
-    #tags:
-    #  - "v*"
+    tags:
+      - "v*"
 
 permissions:
   contents: write
@@ -45,6 +45,7 @@ jobs:
           # fpm outputs into current directory by default
           mv *.deb dist/ || true
           mv *.rpm dist/ || true
+          cp out/cli/pocket-ssot dist/ || true
           ls -lah dist
 
       - name: Create GitHub Release and upload assets

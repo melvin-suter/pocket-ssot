@@ -66,6 +66,7 @@ public static class ReleaseEndpoints
 
     private static async Task<IResult> ReleaseCollection(
         string collectionId,
+        string? releaseChannelId,
         HttpContext ctx,
         YamlStore store,
         IReleaseRunner runner
@@ -78,12 +79,13 @@ public static class ReleaseEndpoints
         if (collection is null)
             return Results.NotFound(new { error = "Collection not found" });
 
-        if (string.IsNullOrWhiteSpace(collection.ReleaseChannelCollection))
-            return Results.BadRequest(new { error = "Collection has no release_channel_collection" });
+        var channelId = releaseChannelId ?? collection.ReleaseChannelCollection;
+        if (string.IsNullOrWhiteSpace(channelId))
+            return Results.BadRequest(new { error = "No release channel specified" });
 
         var channel = store.Find<ReleaseChannel>(
             "release-channels",
-            rc => rc.ID == collection.ReleaseChannelCollection
+            rc => rc.ID == channelId
         );
 
         if (channel is null)
@@ -106,15 +108,15 @@ public static class ReleaseEndpoints
 
         release.Results = await runner.RunAsync(collection, channel, entities, steps);
 
-        // You said: results in new files in yamlstore.
-        // This writes ONE file per release, stored under releases-collection/<id>.yaml
-        store.Insert($"releases-collection", release, r => r.ID);
+        release.Status = release.Results.All(x => x.Status);
 
-        var ok = release.Results.All(x => x.Status);
+        // You said: results in new files in yamlstore.
+        // This writes ONE file per release, stored under releases/collections/<collectionid>/<id>.yaml
+        store.Insert($"releases/collections", release, r => r.ID);
 
         return Results.Ok(new
         {
-            ok,
+            ok = release.Status,
             collection_id = collectionId,
             release_id = release.ID,
             name = release.Name,
@@ -124,6 +126,7 @@ public static class ReleaseEndpoints
 
     private static async Task<IResult> ReleaseEntity(
         string entityId,
+        string? releaseChannelId,
         HttpContext ctx,
         YamlStore store,
         IReleaseRunner runner
@@ -143,12 +146,13 @@ public static class ReleaseEndpoints
         if (collection is null)
             return Results.NotFound(new { error = "Collection not found" });
 
-        if (string.IsNullOrWhiteSpace(collection.ReleaseChannelEntity))
-            return Results.BadRequest(new { error = "Collection has no release_channel_entity" });
+        var channelId = releaseChannelId ?? collection.ReleaseChannelEntity;
+        if (string.IsNullOrWhiteSpace(channelId))
+            return Results.BadRequest(new { error = "No release channel specified" });
 
         var channel = store.Find<ReleaseChannel>(
             "release-channels",
-            rc => rc.ID == collection.ReleaseChannelEntity
+            rc => rc.ID == channelId
         );
 
         if (channel is null)
@@ -168,13 +172,13 @@ public static class ReleaseEndpoints
 
         release.Results = await runner.RunAsync(collection, channel, new List<Entity> { entity }, steps);
 
-        store.Insert($"releases-entity", release, r => r.ID);
+        release.Status = release.Results.All(x => x.Status);
 
-        var ok = release.Results.All(x => x.Status);
+        store.Insert($"releases/entities", release, r => r.ID);
 
         return Results.Ok(new
         {
-            ok,
+            ok = release.Status,
             entity_id = entityId,
             collection_id = entity.CollectionId,
             release_id = release.ID,

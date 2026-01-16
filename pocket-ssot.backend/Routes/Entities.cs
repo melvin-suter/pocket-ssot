@@ -1,4 +1,5 @@
 using PocketSsot.Models;
+using PocketSsot.Infrastructure;
 
 namespace PocketSsot.Routes;
 
@@ -6,6 +7,11 @@ public static class Entities
 {
     public static IEndpointRouteBuilder MapEntities(this IEndpointRouteBuilder app)
     {
+        app.MapGet("/api/entities/{id}/releases", (string id, YamlStore yaml) =>
+        {
+            return Results.Ok(yaml.List<ReleaseRecord>("releases/entities", r => r.EntityId == id));
+        });
+
         return app.MapCrud<Entity, EntityInsertRequest, EntityUpdateRequest>(
             basePath: "/api/entities",
             datasetName: "entities",

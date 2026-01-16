@@ -8,7 +8,7 @@ export default function EntityField({currentValue, config, emit}:{currentValue:a
     useEffect(() => {
         setValue(currentValue);
 
-        if(config.type == "switch" && currentValue == undefined) {
+        if(config.type == "switch" && (currentValue == undefined || String(currentValue).length == 0))  {
             setValue(Boolean(config.config.defaultState));
         }
     },[currentValue]);
@@ -93,7 +93,7 @@ export default function EntityField({currentValue, config, emit}:{currentValue:a
 
             {config.type == "switch" ? (
                 <>
-                    <input disabled={config.config.apiCallbackBlockManual} type="checkbox" role="switch" checked={value} value="on" onChange={(e) => setValue(e.target.checked)}/>
+                    <input disabled={config.config.apiCallbackBlockManual} type="checkbox" role="switch" checked={value == "true" || value == true} value="on" onChange={(e) => setValue(e.target.checked)}/>
                     <p className="text-danger">{error}</p>
                 </>
             ) : (null)}

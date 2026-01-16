@@ -22,7 +22,7 @@ export default function ReleaseChannel() {
   useEffect(() => {
     if(releaseChannel){
       setReleaseChannelName(releaseChannel.name);
-      setSteps(releaseChannel.steps);
+      setSteps(releaseChannel.steps.sort((a:any, b:any) => a.order - b.order));
     }
   },[releaseChannel])
 

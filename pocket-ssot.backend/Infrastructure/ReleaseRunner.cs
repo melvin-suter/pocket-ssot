@@ -95,12 +95,12 @@ public sealed class ReleaseRunner : IReleaseRunner
             foreach (var entity in entities)
             {
                 // IMPORTANT: normalize fields into a real dictionary
-                var safeEntity = new
+                var safeEntity = new Dictionary<string, object>
                 {
-                    id = entity.ID,
-                    name = entity.Name,
-                    collectionid = entity.CollectionId,
-                    fields = NormalizeFields(entity.Fields),
+                    ["Id"] = entity.ID,
+                    ["Name"] = entity.Name,
+                    ["CollectionId"] = entity.CollectionId,
+                    ["Fields"] = NormalizeFields(entity.Fields),
                 };
 
                 var data = new { collection, entity = safeEntity };
@@ -156,12 +156,12 @@ public sealed class ReleaseRunner : IReleaseRunner
         // single file mode uses { collection, entities }
         {
             // IMPORTANT: normalize fields for *each* entity
-            var safeEntities = entities.Select(e => new
+            var safeEntities = entities.Select(e => new Dictionary<string, object>
             {
-                id = e.ID,
-                name = e.Name,
-                collectionid = e.CollectionId,
-                fields = NormalizeFields(e.Fields),
+                ["Id"] = e.ID,
+                ["Name"] = e.Name,
+                ["CollectionId"] = e.CollectionId,
+                ["Fields"] = NormalizeFields(e.Fields),
             }).ToList();
 
             var data = new { collection, entities = safeEntities };
@@ -254,10 +254,10 @@ public sealed class ReleaseRunner : IReleaseRunner
                 // normalize fields for templates used inside shell/env/workdir too
                 var safeEntity = new
                 {
-                    id = entity.ID,
-                    name = entity.Name,
-                    collectionid = entity.CollectionId,
-                    fields = NormalizeFields(entity.Fields),
+                    Id = entity.ID,
+                    Name = entity.Name,
+                    CollectionId = entity.CollectionId,
+                    Fields = NormalizeFields(entity.Fields),
                 };
 
                 var data = new { collection, entity = safeEntity };
@@ -289,12 +289,12 @@ public sealed class ReleaseRunner : IReleaseRunner
 
         // normal mode
         {
-            var safeEntities = entities.Select(e => new
+            var safeEntities = entities.Select(e => new Dictionary<string, object>
             {
-                id = e.ID,
-                name = e.Name,
-                collectionid = e.CollectionId,
-                fields = NormalizeFields(e.Fields),
+                ["Id"] = e.ID,
+                ["Name"] = e.Name,
+                ["CollectionId"] = e.CollectionId,
+                ["Fields"] = NormalizeFields(e.Fields),
             }).ToList();
 
             var data = new { collection, entities = safeEntities };
@@ -320,9 +320,7 @@ public sealed class ReleaseRunner : IReleaseRunner
         if (tpl.HasErrors)
             throw new InvalidOperationException($"{name} template parse error: {string.Join("; ", tpl.Messages.Select(m => m.Message))}");
 
-        // IMPORTANT:
-        // Expose members to Scriban as lowercase so templates can use entity.fields, collection.name, etc.
-        return tpl.Render(model, member => member.Name.ToLowerInvariant());
+        return tpl.Render(model);
     }
 
     // ---------------------------

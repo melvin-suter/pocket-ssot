@@ -14,6 +14,11 @@ public static class Collections
             return Results.Ok(yaml.List<Entity>("entities", u => u.CollectionId == id));
         });
 
+        app.MapGet("/api/collections/{id}/releases", (string id, YamlStore yaml) =>
+        {
+            return Results.Ok(yaml.List<ReleaseRecord>("releases/collections", r => r.CollectionId == id));
+        });
+
         // Your CRUD for collections themselves (list/get/insert/update/delete)
         app.MapCrud<Collection, CollectionInsertRequest, CollectionUpdateRequest>(
             basePath: "/api/collections",

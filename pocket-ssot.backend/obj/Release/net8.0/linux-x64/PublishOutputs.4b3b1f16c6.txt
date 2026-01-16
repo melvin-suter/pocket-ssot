@@ -1,0 +1,4 @@
+/root/code/pocket-ssot/out/backend/appsettings.Development.json
+/root/code/pocket-ssot/out/backend/appsettings.json
+/root/code/pocket-ssot/out/backend/pocket-ssot.backend.pdb
+/root/code/pocket-ssot/out/backend/pocket-ssot.backend

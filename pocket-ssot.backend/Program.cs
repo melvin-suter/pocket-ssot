@@ -4,8 +4,36 @@ using PocketSsot.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
+using System.Net;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Load YAML config files manually
+var deserializer = new DeserializerBuilder()
+    .WithNamingConvention(CamelCaseNamingConvention.Instance)
+    .Build();
+
+Dictionary<string, string?>? config = null;
+if (File.Exists("/etc/pocket-ssot/pocket-ssot.yml"))
+{
+    var yaml = File.ReadAllText("/etc/pocket-ssot/pocket-ssot.yml");
+    config = deserializer.Deserialize<Dictionary<string, object>>(yaml)
+        .ToDictionary(kvp => kvp.Key, kvp => kvp.Value?.ToString());
+}
+else if (File.Exists("pocket-ssot.yml"))
+{
+    var yaml = File.ReadAllText("pocket-ssot.yml");
+    config = deserializer.Deserialize<Dictionary<string, object>>(yaml)
+        .ToDictionary(kvp => kvp.Key, kvp => kvp.Value?.ToString());
+}
+
+if (config != null)
+{
+    builder.Configuration.AddInMemoryCollection(config);
+}
 
 // Add Datastore
 builder.Services.AddSingleton<YamlStore>();
@@ -43,6 +71,11 @@ builder.Logging.AddConsole();
 // ---------- Initial Startup ----------
 builder.Services.AddHostedService<StartupTasks>();
 
+// Configure host and port
+var host = builder.Configuration["host"] ?? "localhost";
+var port = builder.Configuration["port"] ?? "5000";
+var localhostPort = builder.Configuration["localhostPort"] ?? "5001";
+builder.WebHost.UseUrls($"http://{host}:{port}", $"http://127.0.0.1:{localhostPort}");
 
 var app = builder.Build();
 
@@ -52,6 +85,24 @@ app.UseStaticFiles();    // serves files from wwwroot
 app.MapGet("/api/health", () => Results.Ok(new { ok = true, time = DateTimeOffset.UtcNow }));
 
 // ---------- middleware ----------
+// Middleware to allow localhost access without JWT
+app.Use(async (context, next) =>
+{
+    if (int.TryParse(localhostPort, out var portNum) &&
+        context.Request.Host.Port == portNum &&
+        (context.Connection.RemoteIpAddress?.Equals(IPAddress.Loopback) == true ||
+         context.Connection.RemoteIpAddress?.Equals(IPAddress.IPv6Loopback) == true))
+    {
+        if (context.User.Identity?.IsAuthenticated != true)
+        {
+            var claims = new[] { new Claim(ClaimTypes.Name, "localhost") };
+            var identity = new ClaimsIdentity(claims, "localhost");
+            context.User = new ClaimsPrincipal(identity);
+        }
+    }
+    await next();
+});
+
 app.UseAuthentication();
 app.UseAuthorization();
 

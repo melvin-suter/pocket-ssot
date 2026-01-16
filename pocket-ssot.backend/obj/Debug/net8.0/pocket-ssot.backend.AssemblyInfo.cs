@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pocket-ssot.backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.8.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.8+3b388b08ce064650e1ed54804ae844b4ebcb7b22")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.8+3a666ac81822d757b90f7e0aefbc69f99de482c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("pocket-ssot.backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pocket-ssot.backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.8.0")]

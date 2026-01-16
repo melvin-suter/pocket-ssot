@@ -1,0 +1,2 @@
+/root/code/pocket-ssot/out/publish/pocket-ssot.cli.pdb
+/root/code/pocket-ssot/out/publish/pocket-ssot.cli

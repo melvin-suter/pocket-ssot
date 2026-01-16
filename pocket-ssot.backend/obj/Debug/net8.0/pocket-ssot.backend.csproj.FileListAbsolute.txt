@@ -37,3 +37,4 @@
 /root/code/pocket-ssot/pocket-ssot.backend/bin/Debug/net8.0/YamlDotNet.dll
 /root/code/pocket-ssot/pocket-ssot.backend/obj/Debug/net8.0/pocket-ssot.backend.csproj.CopyComplete
 /root/code/pocket-ssot/pocket-ssot.backend/bin/Debug/net8.0/Scriban.dll
+/root/code/pocket-ssot/pocket-ssot.backend/bin/Debug/net8.0/pocket-ssot.backend.staticwebassets.runtime.json
