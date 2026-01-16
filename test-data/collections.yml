@@ -1,9 +1,0 @@
-items:
-- iD: c2068415-8c1f-462e-95f3-b7f25517ab39
-  name: Ansible - Docker Composes
-  allowExtraFields: true
-  policies:
-  - 973db887-0871-45aa-92ff-c4bcca465b3f
-  releaseChannelCollection: 7a9107ed-44fe-4fc3-9198-142b50431166
-  releaseChannelEntity: ''
-  createdAt: 2026-01-15T14:50:46.2586985Z
