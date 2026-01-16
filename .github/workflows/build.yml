@@ -23,6 +23,10 @@ jobs:
           cache: npm
           cache-dependency-path: pocket-ssot.frontend/package-lock.json
 
+      - name: Install npm dependencies
+        run: npm ci
+        working-directory: pocket-ssot.frontend
+
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
