@@ -46,6 +46,8 @@ extension: .yml        # File extension
 ### Service
 Web UI at `http://localhost:5000`.
 
+If no user exists, the first startup creates a user `admin` with password `admin`.
+
 ### CLI
 ```bash
 pocket-ssot list collections
