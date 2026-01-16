@@ -1,6 +1,12 @@
 # PocketSSoT
 
+![logo](logo.png)
+
 Single source of truth for managing software releases. API, CLI, and web UI.
+
+## AI Usage
+
+I did use AI to help out with the logo and some code. I do understand it, I'm just not as fast anymore in C# and React as I used to be. :-)
 
 ## Install
 
