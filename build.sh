@@ -63,8 +63,8 @@ fpm -s dir -t deb \
   ./out/backend/pocket-ssot.backend=/usr/lib/pocket-ssot/pocket-ssot.backend \
   ./out/backend/wwwroot=/usr/lib/pocket-ssot/wwwroot \
   package-files/pocket-ssot.service=/lib/systemd/system/pocket-ssot.service \
-  docs/README.md=/usr/share/doc/pocket-ssot/README.md \
-  docs/LICENSE=/usr/share/doc/pocket-ssot/LICENSE \
+  README.md=/usr/share/doc/pocket-ssot/README.md \
+  LICENSE=/usr/share/doc/pocket-ssot/LICENSE \
   > /dev/null
 
 echo "... Building .rpm"
@@ -79,6 +79,6 @@ fpm -s dir -t rpm \
   ./out/backend/pocket-ssot.backend=/usr/lib/pocket-ssot/pocket-ssot.backend \
   ./out/backend/wwwroot=/usr/lib/pocket-ssot/wwwroot \
   package-files/pocket-ssot.service=/lib/systemd/system/pocket-ssot.service \
-  docs/README.md=/usr/share/doc/pocket-ssot/README.md \
-  docs/LICENSE=/usr/share/doc/pocket-ssot/LICENSE \
+  README.md=/usr/share/doc/pocket-ssot/README.md \
+  LICENSE=/usr/share/doc/pocket-ssot/LICENSE \
   > /dev/null

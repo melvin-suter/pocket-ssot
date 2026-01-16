@@ -1,0 +1,67 @@
+Business Source License 1.1
+
+License text copyright © 2017 MariaDB Corporation Ab.
+
+“Licensed Work” means the Source Code and any other work licensed under this License.
+
+“Source Code” means the preferred form of the Licensed Work for making modifications to it.
+
+“Licensor” means the copyright holder or entity authorized by the copyright holder that is granting this License.
+
+“You” (or “Your”) means an individual or a legal entity exercising permissions granted by this License.
+
+“Use” means anything you do with the Licensed Work that would require permission under applicable copyright law.
+
+---
+
+### Grant of Rights
+
+Subject to the terms and conditions of this License, the Licensor hereby grants You a non-exclusive, non-transferable, non-sublicensable, royalty-free license to use, copy, modify, and redistribute the Licensed Work, in whole or in part, for any purpose **other than a Prohibited Use**, for the duration of the License.
+
+---
+
+### Prohibited Use
+
+You may not use the Licensed Work for **Commercial SaaS or Resale** purposes, meaning:
+
+- Offering the Licensed Work or a modified version of it as a hosted service, software-as-a-service (SaaS), or managed service to third parties
+- Selling, licensing, or otherwise commercializing the Licensed Work itself
+- Providing access to the Licensed Work as a product or service whose primary value derives from the Licensed Work
+
+Internal commercial use, internal services, and use as part of a broader system **not offered as a standalone product or service** are permitted.
+
+---
+
+### Change Date
+
+On **2031-01-16** (“Change Date”), the terms of this License will automatically convert to the license specified below.
+
+---
+
+### Change License
+
+On the Change Date, the Licensed Work will be made available under the **Apache License, Version 2.0**.
+
+---
+
+### Notices
+
+You must retain all copyright, license, and attribution notices in the Licensed Work.
+
+---
+
+### No Warranty
+
+The Licensed Work is provided “AS IS”, without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
+
+---
+
+### Limitation of Liability
+
+In no event shall the Licensor be liable for any damages arising out of or related to the use or inability to use the Licensed Work.
+
+---
+
+### Additional Information
+
+Commercial licenses for SaaS or resale use are available upon request.
