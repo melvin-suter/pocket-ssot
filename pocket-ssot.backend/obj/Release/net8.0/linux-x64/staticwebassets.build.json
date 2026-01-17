@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wyq81jOmsH+11YrxyQWgbL9pFshwUBeAtcUzDQP53hc=",
+  "Hash": "dSYZSHMf5y9JGkCytR9OzprY1Tmi/iKxY75uk9huWXI=",
   "Source": "pocket-ssot.backend",
   "BasePath": "_content/pocket-ssot.backend",
   "Mode": "Default",
@@ -74,12 +74,12 @@
       "OriginalItemSpec": "wwwroot/index.html"
     },
     {
-      "Identity": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/vite.svg",
+      "Identity": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/logo.png",
       "SourceId": "pocket-ssot.backend",
       "SourceType": "Discovered",
       "ContentRoot": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/",
       "BasePath": "_content/pocket-ssot.backend",
-      "RelativePath": "vite.svg",
+      "RelativePath": "logo.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -90,7 +90,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/vite.svg"
+      "OriginalItemSpec": "wwwroot/logo.png"
     }
   ]
 }

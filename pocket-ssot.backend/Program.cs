@@ -115,4 +115,7 @@ app.MapEntities();
 app.MapReleaseEndpoints();
 app.MapReleases();
 
+// SPA fallback
+app.MapFallbackToFile("index.html");
+
 app.Run();

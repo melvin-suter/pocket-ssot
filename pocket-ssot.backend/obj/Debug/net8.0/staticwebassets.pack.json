@@ -13,8 +13,8 @@
       "PackagePath": "staticwebassets/index.html"
     },
     {
-      "Id": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/vite.svg",
-      "PackagePath": "staticwebassets/vite.svg"
+      "Id": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/logo.png",
+      "PackagePath": "staticwebassets/logo.png"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.pocket-ssot.backend.props",

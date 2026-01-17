@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2H8pXgRvfgBfmOg6KdOIPLWWn9CIjneclce0zcwRSeHwG6hSTP6KZ/4mRPkyz3zXPNvSnSjvcFu75wzDk7yG2w==",
+  "dgSpecHash": "/b1PVX2GYPJdgDYFJYGRK0MiODV9xzzsf3AzposvgSNYA22bIf2WHiluxgMETjbONew8Sa3gXDdT0rWl2PD0Zg==",
   "success": true,
   "projectFilePath": "/root/code/pocket-ssot/pocket-ssot.backend/pocket-ssot.backend.csproj",
   "expectedPackageFiles": [
@@ -14,13 +14,9 @@
     "/root/.nuget/packages/microsoft.identitymodel.protocols/7.0.3/microsoft.identitymodel.protocols.7.0.3.nupkg.sha512",
     "/root/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/7.0.3/microsoft.identitymodel.protocols.openidconnect.7.0.3.nupkg.sha512",
     "/root/.nuget/packages/microsoft.identitymodel.tokens/8.15.0/microsoft.identitymodel.tokens.8.15.0.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.net.illink.tasks/8.0.22/microsoft.net.illink.tasks.8.0.22.nupkg.sha512",
     "/root/.nuget/packages/scriban/6.5.2/scriban.6.5.2.nupkg.sha512",
     "/root/.nuget/packages/system.identitymodel.tokens.jwt/8.15.0/system.identitymodel.tokens.jwt.8.15.0.nupkg.sha512",
-    "/root/.nuget/packages/yamldotnet/16.3.0/yamldotnet.16.3.0.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/8.0.22/microsoft.netcore.app.runtime.linux-x64.8.0.22.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/8.0.22/microsoft.aspnetcore.app.runtime.linux-x64.8.0.22.nupkg.sha512",
-    "/root/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512"
+    "/root/.nuget/packages/yamldotnet/16.3.0/yamldotnet.16.3.0.nupkg.sha512"
   ],
   "logs": []
 }
