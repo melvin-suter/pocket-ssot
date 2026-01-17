@@ -328,7 +328,7 @@
     "/root/.nuget/packages/": {}
   },
   "project": {
-    "version": "1.1.3",
+    "version": "1.1.5",
     "restore": {
       "projectUniqueName": "/root/code/pocket-ssot/pocket-ssot.cli/pocket-ssot.cli.csproj",
       "projectName": "pocket-ssot.cli",

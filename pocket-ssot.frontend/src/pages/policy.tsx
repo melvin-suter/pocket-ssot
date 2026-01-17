@@ -9,6 +9,7 @@ import Breadcrumbs from "../components/breadcrumbs";
 import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { DndContext } from "@dnd-kit/core";
 import { useToasts } from "../services/ToastService";
+import ImportExport from "../components/import_export";
 
 export default function Policy() {
   const { id } = useParams<{ id: string }>();
@@ -17,7 +18,6 @@ export default function Policy() {
   const [policyName, setPolicyName] = useState<string>("");
   const [fields, setFields] = useState<any[]>([]);
   const [showReorder, setShowReorder] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null)
   const [orderingList, setOrderingList] = useState<any[]>([]);
   const { addToast } = useToasts();
 
@@ -61,30 +61,6 @@ export default function Policy() {
     );
   };
 
-  const exportData = async () => {
-    const blob = new Blob([JSON.stringify(fields)], { type: "text/plain;charset=utf-8" })
-    const url = URL.createObjectURL(blob)
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = policy.name + ".json";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-
-    URL.revokeObjectURL(url)
-  };
-
-  const importData = async (e:any) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-
-    const text = await file.text()
-    const parsed = JSON.parse(text);
-
-    setFields([...parsed]);
-  };
-
   const openReorder = () => {
     let c = 0;
     setOrderingList(
@@ -126,19 +102,13 @@ export default function Policy() {
             ]}/>
             <h1>{policy?.name}</h1>
 
-            <p>
-              <button onClick={exportData}>Export</button>
-              <button onClick={() => inputRef.current?.click()}>Import</button>
-              <button onClick={openReorder}>Reorder</button>
-            </p>
-
-            <input
-              type="file"
-              accept=".txt,.json,.yaml,.yml"
-              onChange={importData}
-              style={{display: "none"}}
-              ref={inputRef}
-            />
+            <ImportExport setter={setFields} field={fields} name={policy?.name}>  
+              <>
+                <button type="button" onClick={openReorder}>
+                  Reorder
+                </button>
+              </>
+            </ImportExport>
             
             <label>Name</label>
             <input type="text" value={policyName} onChange={(e) => setPolicyName(e.target.value)}/>

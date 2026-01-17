@@ -61,7 +61,8 @@ fpm -s dir -t deb \
   --after-remove package-files/postrm \
   ./out/cli/pocket-ssot=/usr/bin/pocket-ssot \
   ./out/backend/pocket-ssot.backend=/usr/lib/pocket-ssot/pocket-ssot.backend \
-  ./out/backend/wwwroot=/usr/lib/pocket-ssot/wwwroot \
+  ./out/backend/wwwroot=/usr/lib/pocket-ssot/ \
+  package-files/pocket-ssot.yml=/etc/pocket-ssot/pocket-ssot.yml \
   package-files/pocket-ssot.service=/lib/systemd/system/pocket-ssot.service \
   README.md=/usr/share/doc/pocket-ssot/README.md \
   LICENSE=/usr/share/doc/pocket-ssot/LICENSE \
@@ -77,7 +78,7 @@ fpm -s dir -t rpm \
   --after-remove package-files/postuninstall.sh \
   ./out/cli/pocket-ssot=/usr/bin/pocket-ssot \
   ./out/backend/pocket-ssot.backend=/usr/lib/pocket-ssot/pocket-ssot.backend \
-  ./out/backend/wwwroot=/usr/lib/pocket-ssot/wwwroot \
+  ./out/backend/wwwroot=/usr/lib/pocket-ssot/ \
   package-files/pocket-ssot.service=/lib/systemd/system/pocket-ssot.service \
   README.md=/usr/share/doc/pocket-ssot/README.md \
   LICENSE=/usr/share/doc/pocket-ssot/LICENSE \

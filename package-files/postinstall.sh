@@ -19,6 +19,9 @@ chown -R pocket-ssot:pocket-ssot /var/lib/pocket-ssot
 chmod 750 /var/lib/pocket-ssot
 chmod 750 /etc/pocket-ssot
 
+chown pocket-ssot:pocket-ssot -R /etc/pocket-ssot
+chown pocket-ssot:pocket-ssot -R /var/lib/pocket-ssot
+
 systemctl daemon-reload || true
 systemctl enable pocket-ssot.service || true
 systemctl restart pocket-ssot.service || true

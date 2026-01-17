@@ -14,7 +14,8 @@ public static class CrudRoutes
         Func<TInsert, TEntity> createEntity,
         Action<TEntity, TUpdate> applyUpdate,
         Func<TEntity, (bool ok, string? error)>? validateEntity = null,
-        Action<TEntity>? normalizeEntity = null
+        Action<TEntity>? normalizeEntity = null,
+        Func<string, YamlStore, IResult>? customDelete = null
     )
         where TEntity : class
     {
@@ -71,8 +72,15 @@ public static class CrudRoutes
 
         app.MapDelete($"{basePath}/{{id}}", (string id, YamlStore yaml) =>
         {
-            var deleted = yaml.Delete<TEntity>(datasetName, keySelector, id);
-            return deleted ? Results.Ok(new { ok = true }) : Results.NotFound();
+            if (customDelete != null)
+            {
+                return customDelete(id, yaml);
+            }
+            else
+            {
+                var deleted = yaml.Delete<TEntity>(datasetName, keySelector, id);
+                return deleted ? Results.Ok(new { ok = true }) : Results.NotFound();
+            }
         });
 
         return app;

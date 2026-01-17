@@ -6,6 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import EntityField from "../components/entity_field";
 import Breadcrumbs from "../components/breadcrumbs";
 import { useToasts } from "../services/ToastService";
+import ImportExport from "../components/import_export";
 
 export default function Entity() {
   const { addToast } = useToasts();
@@ -109,6 +110,9 @@ export default function Entity() {
                 ]}/>
                 
                 <h1>{entity?.name}</h1>
+
+                <ImportExport setter={setFields} field={fields} name={entity?.name}/>
+                
 
                 {group.allow_host_release ? (
                   <>

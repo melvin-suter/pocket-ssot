@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import StepConfig from "../components/step_config";
 import Breadcrumbs from "../components/breadcrumbs";
 import { useToasts } from "../services/ToastService";
+import ImportExport from "../components/import_export";
 
 export default function ReleaseChannel() {
   const { id } = useParams<{ id: string }>();
@@ -61,11 +62,20 @@ export default function ReleaseChannel() {
   };
 
   const updateStep = async (index:number, data:any) => {
-    setSteps([...steps.filter((a,b) => b != index), data]);
+    setSteps(
+      [
+        ...steps.filter((a,b) => b != index), // Keep all except the updated object
+        data // append the new object
+      ].sort((a:any, b:any) => a.order - b.order) // Reorder
+    );
   }
 
   const deleteStep = async (index:number) => {
-    setSteps([...steps.filter((a,b) => b != index)]);
+    setSteps(
+      [
+        ...steps.filter((a,b) => b != index) // Keep all except the deleted object
+      ].sort((a:any, b:any) => a.order - b.order) // Reorder
+    );
   }
 
 
@@ -78,6 +88,8 @@ export default function ReleaseChannel() {
               {name: releaseChannel?.name},
             ]}/>
             <h1>{releaseChannel?.name}</h1>
+
+            <ImportExport setter={setSteps} field={steps} name={releaseChannel?.name}/>
 
             <label>Name</label>
             <input type="text" value={releaseChannelName} onChange={(e) => setReleaseChannelName(e.target.value)}/>

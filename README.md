@@ -43,6 +43,21 @@ extension: .yml        # File extension
 
 ## Usage
 
+### Templates
+
+This tool is using Scriban for templating. Available Data:
+```
+collection
+collection.Name
+entities
+with:
+entity
+entity.Name
+entity.Fields
+
+if foreach entity, only entity instead of entities
+```
+
 ### Service
 Web UI at `http://localhost:5000`.
 

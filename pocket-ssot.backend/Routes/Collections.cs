@@ -2,6 +2,7 @@ using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using PocketSsot.Models;
 using PocketSsot.Infrastructure;
+using System.IO;
 
 namespace PocketSsot.Routes;
 
@@ -37,7 +38,21 @@ public static class Collections
             validateEntity: entity =>
                 string.IsNullOrWhiteSpace(entity.Name)
                     ? (false, "Name is required.")
-                    : (true, null)
+                    : (true, null),
+            customDelete: (id, yaml) =>
+            {
+                var deleted = yaml.Delete<Collection>("collections", c => c.ID, id);
+                if (!deleted) return Results.NotFound();
+
+                // Delete the entities folder
+                var entitiesPath = Path.Combine(yaml.BaseDir, "entities", id);
+                if (Directory.Exists(entitiesPath))
+                {
+                    Directory.Delete(entitiesPath, true);
+                }
+
+                return Results.Ok(new { ok = true });
+            }
         );
 
         return app;

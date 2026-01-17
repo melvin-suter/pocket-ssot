@@ -14,6 +14,8 @@ public class YamlStore
 
     private readonly ConcurrentDictionary<string, object> _fileLocks = new();
 
+    public string BaseDir => _baseDir;
+
     public YamlStore(IConfiguration config)
     {
         _baseDir = config["YamlStore:BaseDir"] ?? "/var/lib/pocket-ssot";

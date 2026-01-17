@@ -35,6 +35,34 @@ if (config != null)
     builder.Configuration.AddInMemoryCollection(config);
 }
 
+// Log config loading
+Console.WriteLine("Config loading:");
+if (File.Exists("/etc/pocket-ssot/pocket-ssot.yml"))
+{
+    Console.WriteLine("Loaded from /etc/pocket-ssot/pocket-ssot.yml");
+}
+else
+{
+    Console.WriteLine("/etc/pocket-ssot/pocket-ssot.yml not found");
+}
+
+if (File.Exists("pocket-ssot.yml"))
+{
+    Console.WriteLine("Loaded from pocket-ssot.yml");
+}
+else
+{
+    Console.WriteLine("pocket-ssot.yml not found");
+}
+
+// Log final config values
+var finalHost = builder.Configuration["host"] ?? "localhost";
+var finalPort = builder.Configuration["port"] ?? "5000";
+var finalLocalhostPort = builder.Configuration["localhostPort"] ?? "5001";
+var finalStorePath = builder.Configuration["storePath"] ?? "/var/lib/pocket-ssot";
+var finalExtension = builder.Configuration["extension"] ?? ".yml";
+Console.WriteLine($"Final config: host={finalHost}, port={finalPort}, localhostPort={finalLocalhostPort}, storePath={finalStorePath}, extension={finalExtension}");
+
 // Add Datastore
 builder.Services.AddSingleton<YamlStore>();
 

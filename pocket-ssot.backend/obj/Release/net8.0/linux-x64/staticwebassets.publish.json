@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ArQ76VhF97+FlTHck84xduF0o0Or1FQf+9F+5IPRoWw=",
+  "Hash": "YBYG2ANV3cQXXjQLYyP9jkedPMao70CC4l3LwTcAyLQ=",
   "Source": "pocket-ssot.backend",
   "BasePath": "_content/pocket-ssot.backend",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/assets/index-CvYbWpSL.js",
+      "SourceId": "pocket-ssot.backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/",
+      "BasePath": "_content/pocket-ssot.backend",
+      "RelativePath": "assets/index-CvYbWpSL.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/index-CvYbWpSL.js"
+    },
     {
       "Identity": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/assets/index-DcwRIC4P.css",
       "SourceId": "pocket-ssot.backend",
@@ -34,25 +53,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/index-DcwRIC4P.css"
-    },
-    {
-      "Identity": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/assets/index-DTW1LcGY.js",
-      "SourceId": "pocket-ssot.backend",
-      "SourceType": "Discovered",
-      "ContentRoot": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/",
-      "BasePath": "_content/pocket-ssot.backend",
-      "RelativePath": "assets/index-DTW1LcGY.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/assets/index-DTW1LcGY.js"
     },
     {
       "Identity": "/root/code/pocket-ssot/pocket-ssot.backend/wwwroot/index.html",
