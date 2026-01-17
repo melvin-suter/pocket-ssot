@@ -1,0 +1,1 @@
+[{"name":"Deploy Host","type":"shell","order":1,"config":{"content":"","eachEntity":"true","shell":"sudo /usr/local/sbin/ssot-deploy-host.sh \"{{ entity.Fields.hostname }}\""}}]

@@ -1,0 +1,1 @@
+[{"name":"group_name","label":"Group Name","type":"string","order":0,"config":{"order":"1"}},{"name":"rules","label":"Rules","type":"textarea","order":0,"config":{"order":"2","width":"full-width"}}]

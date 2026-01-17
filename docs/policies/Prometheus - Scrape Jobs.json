@@ -1,0 +1,1 @@
+[{"name":"job_name","label":"Job Name","type":"string","order":0,"config":{"order":"1"}},{"name":"config","label":"Config","type":"textarea","order":0,"config":{"order":"2","width":"full-width"}}]

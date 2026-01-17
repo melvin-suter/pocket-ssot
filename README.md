@@ -58,6 +58,12 @@ entity.Fields
 if foreach entity, only entity instead of entities
 ```
 
+### Examples
+
+I provide some examples for policies and release-channels. These are the ones I'm currently using in my homelab. Maybe this helps a bit to get started.
+
+Look into [policies](docs/policies) and [release-channels](docs/release-channels).
+
 ### Service
 Web UI at `http://localhost:5000`.
 
